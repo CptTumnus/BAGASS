@@ -1,0 +1,12 @@
+body{margin:0;font-family:Montserrat,sans-serif;background:#0e1020;color:#fff}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at top,#6f2cff,#0e1020 60%);z-index:-1}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem}
+.badge{background:#ffd84d;color:#111;padding:.5rem 1rem;border-radius:999px;font-weight:700}
+h1{font-family:Bangers,cursive;font-size:clamp(4rem,12vw,8rem);margin:.5rem 0;color:#ffd84d;text-shadow:4px 4px #7a29ff}
+.subtitle{font-size:1.2rem;opacity:.9}
+.btn{margin-top:2rem;background:#ffd84d;color:#111;padding:1rem 2rem;border-radius:999px;text-decoration:none;font-weight:700;transition:.2s}
+.btn:hover{transform:scale(1.05)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;padding:2rem;max-width:1200px;margin:auto}
+.card{background:rgba(255,255,255,.08);backdrop-filter:blur(8px);padding:2rem;border-radius:20px;border:1px solid rgba(255,216,77,.4);box-shadow:0 10px 30px rgba(0,0,0,.3);margin:2rem}
+footer{text-align:center;padding:2rem;opacity:.7}
+ul{padding-left:1.2rem}
