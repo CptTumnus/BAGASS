@@ -37,7 +37,7 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
 .flip-card.flipped .flip-card { backface-visibility:visible; -webkit-backface-visibility: visible; }
 .flip-card__front { padding:.85rem; }
 .flip-card__front img { width:100%; height:355px; border-radius:1rem; background:rgba(255,255,255,.04); object-fit:contain; }
-.flip-card__back { transform:rotateY(180deg); } .flip-card__back img { width:100%; height:100%; object-fit:cover; }
+.flip-card__back { transform:rotateY(180deg); } .flip-card__back img { width:100%; height:100%; object-fit:contain; display:block; }
 .player-name { margin-top:.9rem; font-size:1.55rem; font-weight:950; letter-spacing:.08em; line-height:1; text-align:center; text-transform:uppercase; }
 .player-title { margin-top:.35rem; color:var(--gold); font-size:.86rem; font-weight:800; text-align:center; }
 .flip-hint { margin-top:auto; color:var(--muted); font-size:.72rem; font-weight:750; letter-spacing:.1em; text-align:center; text-transform:uppercase; }
