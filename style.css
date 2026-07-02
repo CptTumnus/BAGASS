@@ -34,6 +34,7 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
 .flip-card.flipped .flip-card__inner,.flip-card.flipped:hover .flip-card__inner,.flip-card.flipped:focus-visible .flip-card__inner { filter:drop-shadow(0 20px 30px rgba(255,61,157,.34)); transform:translateY(-7px) rotateY(180deg); }
 .flip-card:focus-visible { box-shadow:0 0 0 4px var(--gold); }
 .flip-card__face { position:absolute; inset:0; display:flex; width:100%; height:100%; flex-direction:column; overflow:hidden; border:1px solid var(--line); border-radius:inherit; background:linear-gradient(160deg,var(--surface-2),var(--surface)); box-shadow:var(--shadow); backface-visibility:hidden; -webkit-backface-visibility:hidden; }
+.flip-card.flipped .flip-card__back { backface-visibility: visible; -webkit-backface-visibility: visible; }
 .flip-card__front { padding:.85rem; z-index1; }
 .flip-card__front img { width:100%; height:355px; border-radius:1rem; background:rgba(255,255,255,.04); object-fit:contain; }
 .flip-card__back { transform:rotateY(180deg); z-index:2; } .flip-card__back img { width:100%; height:100%; object-fit:contain; display:block }
