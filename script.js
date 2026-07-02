@@ -1,69 +1,71 @@
-let currentCard = "";
+// -----------------------------
+// BAGASS v1.0
+// script.js
+// -----------------------------
 
-function showPlayer(
-  name,
-  title,
-  game,
-  food,
-  least,
-  colour,
-  number,
-  quote,
-  playStyle,
-  song,
-  secret,
-  image,
-  card
-) {
+// Enter Championship button
 
-  document.getElementById("profile").classList.remove("hidden");
+const enterButton = document.getElementById("enterButton");
 
-  document.getElementById("portrait").src = image;
-  document.getElementById("name").textContent = name;
-  document.getElementById("title").textContent = title;
+enterButton.addEventListener("click", function () {
 
-  document.getElementById("details").innerHTML = `
-    <li><strong>🎲 Favourite Game:</strong> ${game}</li>
-    <li><strong>🍕 Favourite Food:</strong> ${food}</li>
-    <li><strong>💀 Least Favourite Game:</strong> ${least}</li>
-    <li><strong>🎨 Favourite Colour:</strong> ${colour}</li>
-    <li><strong>🍀 Lucky Number:</strong> ${number}</li>
-    <li><strong>💬 Player Quote:</strong> ${quote}</li>
-    <li><strong>🏆 Play Style:</strong> ${playStyle}</li>
-    <li><strong>🎵 Victory Song:</strong> ${song}</li>
-    <li><strong>🤫 Top Secret:</strong> ${secret}</li>
-  `;
+    document.getElementById("mainMenu").scrollIntoView({
 
-  currentCard = card;
+        behavior: "smooth"
 
-  document.getElementById("profile").scrollIntoView({
-    behavior: "smooth"
-  });
-}
+    });
 
-function showCard() {
+});
 
-  if (currentCard === "") return;
 
-  document.getElementById("overlay").style.display = "flex";
-  document.getElementById("cardImage").src = currentCard;
+// -----------------------------
+// Menu Navigation
+// -----------------------------
+
+function scrollToSection(sectionID){
+
+    document.getElementById(sectionID).scrollIntoView({
+
+        behavior:"smooth"
+
+    });
 
 }
 
-function hideCard() {
 
-  document.getElementById("overlay").style.display = "none";
+// -----------------------------
+// Player Cards
+// -----------------------------
 
-}
+const cards = document.querySelectorAll(".flip-card");
 
-window.onclick = function(event){
+cards.forEach(card => {
 
-    const overlay = document.getElementById("overlay");
+    card.addEventListener("click", function(){
 
-    if(event.target === overlay){
+        // Close every other card
 
-        hideCard();
+        cards.forEach(other => {
 
-    }
+            if(other !== card){
 
-}
+                other.classList.remove("flipped");
+
+            }
+
+        });
+
+        // Toggle clicked card
+
+        card.classList.toggle("flipped");
+
+    });
+
+});
+
+
+// -----------------------------
+// Future Placeholder
+// -----------------------------
+
+console.log("BAGASS v1.0 Loaded Successfully");
