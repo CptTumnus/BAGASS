@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12091f">
+  <title>BAGASS Championship</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero" id="home">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <img class="hero__logo" src="images/logo.png" alt="BAGASS Championship">
+    <p class="eyebrow">Board games · Pizza · Questionable tactics</p>
+    <h1>The BAGASS Championship</h1>
+    <p class="hero__copy">Meet the players, follow the league and celebrate the glorious chaos.</p>
+    <button class="primary-button" id="enterButton" type="button">Enter the Championship</button>
+  </header>
+
+  <main>
+    <nav class="main-menu section-shell" id="mainMenu" aria-label="Championship menu">
+      <a href="#players">Meet the Players</a>
+      <a href="#standings">League Standings</a>
+      <a href="#games">Game Library</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#history">Session History</a>
+      <a href="#champions">Hall of Champions</a>
+    </nav>
+
+    <section class="players-section section-shell" id="players">
+      <div class="section-heading">
+        <p class="eyebrow">Choose your challenger</p>
+        <h2>Meet the Players</h2>
+        <p>Click a card to reveal the player profile.</p>
+      </div>
+      <div class="player-grid">
+        
+        <button class="flip-card" type="button" aria-pressed="false" aria-label="Flip Tom's player card">
+          <span class="flip-card__inner">
+            <span class="flip-card__face flip-card__front">
+              <img src="images/tom.png" alt="Tom">
+              <span class="player-name">Tom</span>
+              <span class="player-title">The Laid-Back Strategist</span>
+              <span class="flip-hint">Tap to flip</span>
+            </span>
+            <span class="flip-card__face flip-card__back"><img src="images/tomcard.png" alt="Tom's player profile"></span>
+          </span>
+        </button>
+        <button class="flip-card" type="button" aria-pressed="false" aria-label="Flip Paul's player card">
+          <span class="flip-card__inner">
+            <span class="flip-card__face flip-card__front">
+              <img src="images/paul.png" alt="Paul">
+              <span class="player-name">Paul</span>
+              <span class="player-title">The Strategist</span>
+              <span class="flip-hint">Tap to flip</span>
+            </span>
+            <span class="flip-card__face flip-card__back"><img src="images/paulcard.png" alt="Paul's player profile"></span>
+          </span>
+        </button>
+        <button class="flip-card" type="button" aria-pressed="false" aria-label="Flip Jake's player card">
+          <span class="flip-card__inner">
+            <span class="flip-card__face flip-card__front">
+              <img src="images/jake.png" alt="Jake">
+              <span class="player-name">Jake</span>
+              <span class="player-title">The Chaotic Strategist</span>
+              <span class="flip-hint">Tap to flip</span>
+            </span>
+            <span class="flip-card__face flip-card__back"><img src="images/jakecard.png" alt="Jake's player profile"></span>
+          </span>
+        </button>
+        <button class="flip-card" type="button" aria-pressed="false" aria-label="Flip Rachel's player card">
+          <span class="flip-card__inner">
+            <span class="flip-card__face flip-card__front">
+              <img src="images/rachel.png" alt="Rachel">
+              <span class="player-name">Rachel</span>
+              <span class="player-title">The Competitive Supporter</span>
+              <span class="flip-hint">Tap to flip</span>
+            </span>
+            <span class="flip-card__face flip-card__back"><img src="images/rachelcard.jpeg" alt="Rachel's player profile"></span>
+          </span>
+        </button>
+        <button class="flip-card" type="button" aria-pressed="false" aria-label="Flip Sarah's player card">
+          <span class="flip-card__inner">
+            <span class="flip-card__face flip-card__front">
+              <img src="images/sarah.png" alt="Sarah">
+              <span class="player-name">Sarah</span>
+              <span class="player-title">The Supportive Competitor</span>
+              <span class="flip-hint">Tap to flip</span>
+            </span>
+            <span class="flip-card__face flip-card__back"><img src="images/sarahcard.png" alt="Sarah's player profile"></span>
+          </span>
+        </button>
+        <button class="flip-card" type="button" aria-pressed="false" aria-label="Flip Stacey's player card">
+          <span class="flip-card__inner">
+            <span class="flip-card__face flip-card__front">
+              <img src="images/stacey.png" alt="Stacey">
+              <span class="player-name">Stacey</span>
+              <span class="player-title">The Red Menace</span>
+              <span class="flip-hint">Tap to flip</span>
+            </span>
+            <span class="flip-card__face flip-card__back"><img src="images/staceycard.jpeg" alt="Stacey's player profile"></span>
+          </span>
+        </button>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="standings">
+      <div class="section-heading"><p class="eyebrow">Season 2025–2026</p><h2>League Standings</h2></div>
+      <div class="coming-soon"><span>🏆</span><strong>Standings coming in v1.1</strong></div>
+    </section>
+    <section class="content-section section-shell" id="games">
+      <div class="section-heading"><p class="eyebrow">Pick your poison</p><h2>Game Library</h2></div>
+      <div class="coming-soon"><span>🎲</span><strong>Game library coming soon</strong></div>
+    </section>
+    <section class="content-section section-shell" id="achievements">
+      <div class="section-heading"><p class="eyebrow">Bragging rights</p><h2>Achievements</h2></div>
+      <div class="coming-soon"><span>🏅</span><strong>Achievements coming soon</strong></div>
+    </section>
+    <section class="content-section section-shell" id="history">
+      <div class="section-heading"><p class="eyebrow">Previously at BAGASS</p><h2>Session History</h2></div>
+      <div class="coming-soon"><span>📸</span><strong>Session history coming soon</strong></div>
+    </section>
+    <section class="content-section section-shell" id="champions">
+      <div class="section-heading"><p class="eyebrow">The eternal legends</p><h2>Hall of Champions</h2></div>
+      <div class="coming-soon"><span>👑</span><strong>Hall of Champions coming soon</strong></div>
+    </section>
+  </main>
+  <footer><a href="#home">Back to the top</a><p>BAGASS Championship · 2025–2026</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
