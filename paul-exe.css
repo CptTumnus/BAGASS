@@ -77,3 +77,51 @@ h1{
     font-size:1.5rem;
 
 }
+
+#mainMenu{
+
+    display:none;
+
+    text-align:center;
+
+}
+
+#mainMenu h2{
+
+    color:red;
+
+    margin:25px 0;
+
+    animation:flicker .25s infinite;
+
+}
+
+#cloneButton{
+
+    margin-top:30px;
+
+    padding:18px 36px;
+
+    font-size:1.2rem;
+
+    font-weight:bold;
+
+    background:#00ff66;
+
+    color:black;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+@keyframes flicker{
+
+    0%{opacity:1;}
+
+    50%{opacity:.3;}
+
+    100%{opacity:1;}
+
+}
