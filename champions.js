@@ -43,13 +43,14 @@ function buildChampion(){
 </div>
 
 `;
+
+    // Add the click event AFTER the button exists
+    document.getElementById("paulMode").addEventListener("click", () => {
+
+        window.location.href = "paul-exe.html";
+
+    });
+
 }
 
-document.getElementById("paulMode").addEventListener("click", () => {
-
-    window.location.href = "paul-exe.html";
-
-});
-
 buildChampion();
-
