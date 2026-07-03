@@ -58,7 +58,7 @@ function buildLeagueTable() {
         const trophy = info.seasonOneChampion ? "🏆 " : "";
 
         html += `
-            <tr>
+            <tr class="${index === 0 ? "leader" : ""}">
                 <td>${index + 1}</td>
                 <td>${crown}${trophy}${info.name}</td>
                 <td>${player.points}</td>
