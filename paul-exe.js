@@ -70,11 +70,19 @@ const timer = setInterval(() => {
 
     if(percent >= 100){
 
-        clearInterval(timer);
+       clearInterval(timer);
 
-        status.innerHTML = messages[10];
+status.innerHTML = "⚠ CONTAINMENT BREACHED ⚠";
 
-        text.innerHTML = "ACCESS GRANTED";
+text.innerHTML = "";
+
+setTimeout(() => {
+
+    document.getElementById("loadingScreen").style.display="none";
+
+    document.getElementById("mainMenu").style.display="block";
+
+},2000);
 
     }
 
