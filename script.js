@@ -27,4 +27,59 @@ function toggleCard(event) {
 
 cards.forEach((card) => card.addEventListener("click", toggleCard));
 console.info("BAGASS v1.0 loaded");
-buildLeagueTable()
+
+// ==========================================
+// League Table
+// ==========================================
+
+function buildLeagueTable() {
+
+    const league = getLeagueTable();
+
+    let html = `
+        <table class="league-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Points</th>
+                    <th>🥇</th>
+                    <th>🥈</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    league.forEach((player, index) => {
+
+        const info = getPlayer(player.player);
+
+        const crown = index === 0 ? "👑 " : "";
+        const trophy = info.seasonOneChampion ? "🏆 " : "";
+
+        html += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${crown}${trophy}${info.name}</td>
+                <td>${player.points}</td>
+                <td>${player.firsts}</td>
+                <td>${player.seconds}</td>
+            </tr>
+        `;
+
+    });
+
+    html += `
+            </tbody>
+        </table>
+    `;
+
+    document.getElementById("leagueTable").innerHTML = html;
+
+}
+
+// ==========================================
+// Initialise Website
+// ==========================================
+
+buildLeagueTable();
