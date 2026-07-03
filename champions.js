@@ -15,3 +15,31 @@ image:"images/paul.png"
 }
 
 ];
+
+function buildChampion(){
+
+    const champion = champions[0];
+
+    const player = getPlayer(champion.player);
+
+    document.getElementById("championDisplay").innerHTML = `
+    
+    <div class="champion-card">
+
+        <div class="champion-crown">👑</div>
+
+        <img src="${player.portrait}">
+
+        <h2>${player.name}</h2>
+
+        <h3>${champion.season}</h3>
+
+        <p>${champion.quote}</p>
+
+    </div>
+
+    `;
+
+}
+
+buildChampion();
