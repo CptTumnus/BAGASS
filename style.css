@@ -45,5 +45,45 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
 .coming-soon { display:grid; min-height:230px; place-items:center; align-content:center; gap:.75rem; border:1px dashed rgba(255,255,255,.22); border-radius:1.5rem; color:var(--muted); background:rgba(255,255,255,.025); text-align:center; }
 .coming-soon span { font-size:3rem; } footer { padding:4rem 1rem; color:var(--muted); text-align:center; } footer a { color:var(--gold); font-weight:800; }
 @media (max-width:900px) { .main-menu,.player-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* ==========================
+   League Table
+========================== */
+
+.league-table{
+    width:100%;
+    border-collapse:collapse;
+    background:linear-gradient(160deg,var(--surface-2),var(--surface));
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.league-table th{
+    background:rgba(140,77,255,.25);
+    padding:18px;
+    text-align:left;
+    font-size:1rem;
+    letter-spacing:.05em;
+}
+
+.league-table td{
+    padding:18px;
+    border-top:1px solid var(--line);
+}
+
+.league-table tbody tr:hover{
+    background:rgba(255,255,255,.05);
+}
+
+.league-table td:first-child{
+    font-weight:bold;
+    width:80px;
+}
+
+.league-table td:nth-child(2){
+    font-weight:700;
+}
 @media (max-width:620px) { .main-menu,.player-grid { grid-template-columns:1fr; } .flip-card { height:min(500px,142vw); max-height:500px; } .players-section,.content-section { padding-block:4rem; } }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
