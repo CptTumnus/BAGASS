@@ -23,23 +23,33 @@ function buildChampion(){
     const player = getPlayer(champion.player);
 
     document.getElementById("championDisplay").innerHTML = `
-    
-    <div class="champion-card">
 
-        <div class="champion-crown">👑</div>
+<div class="champion-card">
 
-        <img src="${player.portrait}">
+    <div class="champion-crown">👑</div>
 
-        <h2>${player.name}</h2>
+    <img src="${player.portrait}" alt="${player.name}">
 
-        <h3>${champion.season}</h3>
+    <h2>${player.name}</h2>
 
-        <p>${champion.quote}</p>
+    <h3>${champion.season}</h3>
 
-    </div>
+    <p>${champion.quote}</p>
 
-    `;
+    <button id="paulMode" class="exe-button">
+        ⚠ ENTER PAUL.EXE ⚠
+    </button>
 
+</div>
+
+`;
 }
 
+document.getElementById("paulMode").addEventListener("click", () => {
+
+    window.location.href = "paul-exe.html";
+
+});
+
 buildChampion();
+
