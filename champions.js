@@ -20,7 +20,13 @@ function buildChampion(){
 
     const champion = champions[0];
 
-    const player = getPlayer(champion.player);
+    const player = {
+
+    name: "Paul Barnett",
+
+    portrait: "images/paul.png"
+
+};
 
     document.getElementById("championDisplay").innerHTML = `
 
