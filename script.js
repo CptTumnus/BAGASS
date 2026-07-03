@@ -27,3 +27,4 @@ function toggleCard(event) {
 
 cards.forEach((card) => card.addEventListener("click", toggleCard));
 console.info("BAGASS v1.0 loaded");
+buildLeagueTable()
