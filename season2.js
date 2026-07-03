@@ -24,16 +24,16 @@ const season2 = {
             firsts: 0,
             seconds: 0,
 
-            played: 0
+            played: 2
         },
 
         {
             player: "paul",
 
-            firsts: 0,
+            firsts: 2,
             seconds: 0,
 
-            played: 0
+            played: 2
         },
 
         {
@@ -42,16 +42,16 @@ const season2 = {
             firsts: 0,
             seconds: 0,
 
-            played: 0
+            played: 2
         },
 
         {
             player: "rachel",
 
             firsts: 0,
-            seconds: 0,
+            seconds: 1,
 
-            played: 0
+            played: 2
         },
 
         {
@@ -60,16 +60,16 @@ const season2 = {
             firsts: 0,
             seconds: 0,
 
-            played: 0
+            played: 2
         },
 
         {
             player: "stacey",
 
             firsts: 0,
-            seconds: 0,
+            seconds: 1,
 
-            played: 0
+            played: 2
         }
 
     ]
