@@ -147,3 +147,67 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
 .leader{
     background: rgba(255,200,87,.12);
 }
+
+#championDisplay{
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.champion-card{
+
+width:600px;
+
+padding:40px;
+
+text-align:center;
+
+border-radius:30px;
+
+background:linear-gradient(135deg,#3d225f,#1c122d);
+
+box-shadow:0 0 40px rgba(255,200,87,.3);
+
+}
+
+.champion-card img{
+
+width:220px;
+
+margin:auto;
+
+}
+
+.champion-card h2{
+
+font-size:3rem;
+
+margin:20px 0 0;
+
+}
+
+.champion-card h3{
+
+color:gold;
+
+}
+
+.champion-crown{
+
+font-size:5rem;
+
+animation:float 3s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-10px);}
+
+100%{transform:translateY(0);}
+
+}
