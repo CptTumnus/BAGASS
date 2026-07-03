@@ -143,3 +143,7 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
     font-weight:900;
 
 }
+
+.leader{
+    background: rgba(255,200,87,.12);
+}
