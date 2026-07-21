@@ -93,21 +93,24 @@ function buildSessionHistory() {
 
     container.innerHTML = html;
 
-    document.querySelectorAll(".chronicle-toggle").forEach(button => {
+    document.querySelectorAll(".chronicle-card").forEach(card => {
 
-        button.addEventListener("click", () => {
+    card.addEventListener("click", () => {
 
-            const content = button.nextElementSibling;
+        const content = card.querySelector(".chronicle-content");
+        const toggle = card.querySelector(".chronicle-toggle span");
 
-            const open = content.classList.toggle("open");
+        const open = content.classList.toggle("open");
 
-            button.textContent = open
-                ? "📕 Close Chapter"
-                : "📖 Read Chapter";
+        card.classList.toggle("open");
 
-        });
+        toggle.textContent = open
+            ? "▲ Close Chronicle"
+            : "▼ Open Chronicle";
 
     });
+
+});
 
 }
 
