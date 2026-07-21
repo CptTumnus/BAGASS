@@ -333,3 +333,25 @@ blockquote{
     color:#ddd;
 
 }
+
+.chronicle-content{
+
+    display:none;
+
+    margin-top:20px;
+
+}
+
+.chronicle-content.open{
+
+    display:block;
+
+}
+
+.chronicle-toggle{
+
+    margin-top:20px;
+
+    cursor:pointer;
+
+}
