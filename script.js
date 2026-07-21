@@ -1,31 +1,47 @@
-u// BAGASS Championship v1.0
+// ==========================================
+// BAGASS Championship v1.0
+// ==========================================
+
 const enterButton = document.getElementById("enterButton");
 const mainMenu = document.getElementById("mainMenu");
 const cards = Array.from(document.querySelectorAll(".flip-card"));
 
 enterButton?.addEventListener("click", () => {
-  mainMenu?.scrollIntoView({ behavior: "smooth", block: "start" });
+    mainMenu?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 });
 
+// ==========================================
+// Player Cards
+// ==========================================
+
 function closeCard(card) {
-  card.classList.remove("flipped");
-  card.setAttribute("aria-pressed", "false");
+    card.classList.remove("flipped");
+    card.setAttribute("aria-pressed", "false");
 }
 
 function toggleCard(event) {
-  // currentTarget is always the exact card whose listener fired.
-  const selectedCard = event.currentTarget;
-  const willOpen = !selectedCard.classList.contains("flipped");
 
-  cards.forEach((card) => {
-    if (card !== selectedCard) closeCard(card);
-  });
+    const selectedCard = event.currentTarget;
+    const willOpen = !selectedCard.classList.contains("flipped");
 
-  selectedCard.classList.toggle("flipped", willOpen);
-  selectedCard.setAttribute("aria-pressed", String(willOpen));
+    cards.forEach(card => {
+        if (card !== selectedCard) {
+            closeCard(card);
+        }
+    });
+
+    selectedCard.classList.toggle("flipped", willOpen);
+    selectedCard.setAttribute("aria-pressed", String(willOpen));
+
 }
 
-cards.forEach((card) => card.addEventListener("click", toggleCard));
+cards.forEach(card => {
+    card.addEventListener("click", toggleCard);
+});
+
 console.info("BAGASS v1.0 loaded");
 
 // ==========================================
@@ -55,12 +71,12 @@ function buildLeagueTable() {
         const info = getPlayer(player.player);
 
         const crown = index === 0 ? "👑 " : "";
-        const trophy = info.seasonOneChampion ? "🏆 " : "";
+        const trophy = info && info.seasonOneChampion ? "🏆 " : "";
 
         html += `
             <tr class="${index === 0 ? "leader" : ""}">
                 <td>${index + 1}</td>
-                <td>${crown}${trophy}${info.name}</td>
+                <td>${crown}${trophy}${info ? info.name : player.player}</td>
                 <td>${player.points}</td>
                 <td>${player.firsts}</td>
                 <td>${player.seconds}</td>
@@ -69,121 +85,12 @@ function buildLeagueTable() {
 
     });
 
-    html += `
+    document.getElementById("leagueTable").innerHTML = `
+        ${html}
             </tbody>
         </table>
     `;
 
-    document.getElementById("leagueTable").innerHTML = html;
-
 }
-
-// ==========================================
-// Initialise Website
-// ==========================================
-
-// ==========================================
-// Session Chronicles
-// ==========================================
-
-function buildSessionHistory() {
-
-    const container = document.getElementById("sessionHistory");
-
-    if (!container) {
-        console.error("sessionHistory div not found.");
-        return;
-    }
-
-    let html = "";
-
-    games.forEach((game, index) => {
-
-        const winners = game.results
-            .filter(r => r.position === 1)
-            .map(r => getPlayer(r.player)?.name || r.player);
-
-        const runnersUp = game.results
-            .filter(r => r.position === 2)
-            .map(r => getPlayer(r.player)?.name || r.player);
-
-        const hosts = (game.hosts || [])
-            .map(host => getPlayer(host)?.name || host)
-            .join(" & ");
-
-        html += `
-        <article class="chronicle-card">
-
-            <div class="chronicle-title">
-
-                <p class="eyebrow">
-                    Chapter ${index + 1}
-                </p>
-
-                <h2>${game.game}</h2>
-
-                <p><strong>${game.date}</strong></p>
-
-                <p>🏠 Hosted by ${hosts}</p>
-
-            </div>
-
-            <div class="chronicle-section">
-
-                <h3>🏆 Champions</h3>
-
-                <ul>
-                    ${winners.map(name => `<li>${name}</li>`).join("")}
-                </ul>
-
-            </div>
-
-            ${
-                runnersUp.length
-                ?
-                `
-                <div class="chronicle-section">
-
-                    <h3>🥈 Runner-up</h3>
-
-                    <ul>
-                        ${runnersUp.map(name => `<li>${name}</li>`).join("")}
-                    </ul>
-
-                </div>
-                `
-                :
-                ""
-            }
-
-            <div class="chronicle-section">
-
-                <h3>📜 Chronicle</h3>
-
-                <p>${game.chronicle.replace(/\n/g,"<br><br>")}</p>
-
-            </div>
-
-            <div class="chronicle-section">
-
-                <h3>⭐ Moment of the Night</h3>
-
-                <blockquote>${game.moment}</blockquote>
-
-            </div>
-
-        </article>
-        `;
-
-    });
-
-    container.innerHTML = html;
-
-}
-
-
-// ==========================================
-// Initialise Website
-// ==========================================
 
 buildLeagueTable();
