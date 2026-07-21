@@ -14,102 +14,83 @@ const season2 = {
         first: 2,
         second: 1
 
-    },
-
-    standings: [
-
-        {
-            player: "tom",
-
-            firsts: 1,
-            seconds: 0,
-
-            played: 2
-        },
-
-        {
-            player: "paul",
-
-            firsts: 1,
-            seconds: 0,
-
-            played: 2
-        },
-
-        {
-            player: "jake",
-
-            firsts: 2,
-            seconds: 0,
-
-            played: 2
-        },
-
-        {
-            player: "rachel",
-
-            firsts: 1,
-            seconds: 1,
-
-            played: 2
-        },
-
-        {
-            player: "sarah",
-
-            firsts: 1,
-            seconds: 0,
-
-            played: 2
-        },
-
-        {
-            player: "stacey",
-
-            firsts: 1,
-            seconds: 0,
-
-            played: 2
-        }
-
-    ]
+    }
 
 };
 
 
 // ==========================================
-// Helper Functions
+// Calculate League Table
 // ==========================================
 
 function getLeagueTable(){
 
-    return season2.standings
+    // Create an empty table from the players list
 
-        .map(player => ({
+    const table = players.map(player => ({
 
-            ...player,
+        player: player.id,
 
-            points:
+        firsts: 0,
+        seconds: 0,
+        played: 0,
+        points: 0
 
-                (player.firsts * season2.points.first) +
+    }));
 
-                (player.seconds * season2.points.second)
 
-        }))
+    // Read every game
 
-        .sort((a,b)=>{
+    games.forEach(game => {
 
-            const pointDifference = b.points - a.points;
+        game.results.forEach(result => {
 
-            if(pointDifference !== 0){
+            const entry = table.find(p => p.player === result.player);
 
-                return pointDifference;
+            if(!entry) return;
+
+            entry.played++;
+
+            if(result.position === 1){
+
+                entry.firsts++;
+                entry.points += season2.points.first;
 
             }
 
-            return b.firsts - a.firsts;
+            if(result.position === 2){
+
+                entry.seconds++;
+                entry.points += season2.points.second;
+
+            }
 
         });
+
+    });
+
+
+    // Sort League
+
+    table.sort((a,b)=>{
+
+        if(b.points !== a.points){
+
+            return b.points - a.points;
+
+        }
+
+        if(b.firsts !== a.firsts){
+
+            return b.firsts - a.firsts;
+
+        }
+
+        return b.seconds - a.seconds;
+
+    });
+
+    return table;
 
 }
 
