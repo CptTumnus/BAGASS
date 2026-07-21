@@ -334,25 +334,89 @@ blockquote{
 
 }
 
-.chronicle-content{
+/* ==========================================
+   Chronicle Interaction
+========================================== */
 
-    display:none;
+.chronicle-card{
 
-    margin-top:20px;
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 
 }
 
-.chronicle-content.open{
+.chronicle-card:hover{
 
-    display:block;
+    transform:translateY(-4px);
+
+    border-color:rgba(255,200,87,.35);
+
+}
+
+.chronicle-card.open{
+
+    border-color:rgba(255,200,87,.6);
+
+    box-shadow:
+        0 0 30px rgba(255,200,87,.15),
+        0 20px 45px rgba(0,0,0,.35);
 
 }
 
 .chronicle-toggle{
 
-    margin-top:20px;
+    margin-top:28px;
 
-    cursor:pointer;
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    color:var(--gold);
+
+    font-weight:800;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+.chronicle-toggle span{
+
+    transition:.25s;
+
+}
+
+.chronicle-content{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:
+        max-height .45s ease,
+        opacity .3s ease,
+        margin-top .3s ease;
+
+}
+
+.chronicle-content.open{
+
+    max-height:2500px;
+
+    opacity:1;
+
+    margin-top:30px;
 
 }
 
