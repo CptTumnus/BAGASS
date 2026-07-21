@@ -43,11 +43,11 @@ function buildSessionHistory() {
 
             </div>
 
-            <button class="chronicle-toggle">
+          <div class="chronicle-toggle">
 
-                📖 Read Chapter
+    <span>▼ Open Chronicle</span>
 
-            </button>
+           </div>
 
             <div class="chronicle-content">
 
