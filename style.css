@@ -370,7 +370,7 @@ blockquote{
 
 }
 
-.primary-button{
+.chronicles-home .primary-button{
 
     display:inline-flex;
 
@@ -378,11 +378,15 @@ blockquote{
 
     justify-content:center;
 
+    min-width:340px;
+
+    padding:1rem 2.5rem;
+
     text-decoration:none;
 
-    min-width:320px;
-
     font-size:1.15rem;
+
+    font-weight:900;
 
     letter-spacing:.08em;
 
