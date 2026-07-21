@@ -95,18 +95,37 @@ function buildSessionHistory() {
 
     document.querySelectorAll(".chronicle-card").forEach(card => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (event) => {
+
+        // Don't toggle if the user clicked a link
+        if (event.target.closest("a")) return;
 
         const content = card.querySelector(".chronicle-content");
         const toggle = card.querySelector(".chronicle-toggle span");
 
-        const open = content.classList.toggle("open");
+        const isOpen = card.classList.contains("open");
 
-        card.classList.toggle("open");
+        // Close all other chapters
+        document.querySelectorAll(".chronicle-card").forEach(otherCard => {
 
-        toggle.textContent = open
-            ? "▲ Close Chronicle"
-            : "▼ Open Chronicle";
+            otherCard.classList.remove("open");
+
+            otherCard.querySelector(".chronicle-content").classList.remove("open");
+
+            otherCard.querySelector(".chronicle-toggle span").textContent = "▼ Open Chronicle";
+
+        });
+
+        // Open this one if it wasn't already open
+        if (!isOpen) {
+
+            card.classList.add("open");
+
+            content.classList.add("open");
+
+            toggle.textContent = "▲ Close Chronicle";
+
+        }
 
     });
 
