@@ -88,26 +88,33 @@ function buildLeagueTable() {
 
 function buildSessionHistory() {
 
+    const container = document.getElementById("sessionHistory");
+
+    if (!container) {
+        console.error("sessionHistory div not found.");
+        return;
+    }
+
     let html = "";
 
     games.forEach((game, index) => {
 
         const winners = game.results
-            .filter(result => result.position === 1)
-            .map(result => getPlayer(result.player).name);
+            .filter(r => r.position === 1)
+            .map(r => getPlayer(r.player)?.name || r.player);
 
         const runnersUp = game.results
-            .filter(result => result.position === 2)
-            .map(result => getPlayer(result.player).name);
+            .filter(r => r.position === 2)
+            .map(r => getPlayer(r.player)?.name || r.player);
 
-        const hosts = game.hosts
-            .map(host => getPlayer(host).name)
+        const hosts = (game.hosts || [])
+            .map(host => getPlayer(host)?.name || host)
             .join(" & ");
 
         html += `
-        <article class="chronicle">
+        <article class="chronicle-card">
 
-            <div class="chronicle-header">
+            <div class="chronicle-title">
 
                 <p class="eyebrow">
                     Chapter ${index + 1}
@@ -115,45 +122,69 @@ function buildSessionHistory() {
 
                 <h2>${game.game}</h2>
 
-                <p>${game.date}</p>
+                <p><strong>${game.date}</strong></p>
 
-                <p><strong>Hosted by:</strong> ${hosts}</p>
+                <p>🏠 Hosted by ${hosts}</p>
 
             </div>
 
-            <h3>🏆 Champions</h3>
+            <div class="chronicle-section">
 
-            <ul>
+                <h3>🏆 Champions</h3>
 
-                ${winners.map(name => `<li>${name}</li>`).join("")}
+                <ul>
+                    ${winners.map(name => `<li>${name}</li>`).join("")}
+                </ul>
 
-            </ul>
+            </div>
 
-            <h3>🥈 Runner-up</h3>
+            ${
+                runnersUp.length
+                ?
+                `
+                <div class="chronicle-section">
 
-            <ul>
+                    <h3>🥈 Runner-up</h3>
 
-                ${runnersUp.map(name => `<li>${name}</li>`).join("")}
+                    <ul>
+                        ${runnersUp.map(name => `<li>${name}</li>`).join("")}
+                    </ul>
 
-            </ul>
+                </div>
+                `
+                :
+                ""
+            }
 
-            <h3>📜 Chronicle</h3>
+            <div class="chronicle-section">
 
-            <p>${game.chronicle}</p>
+                <h3>📜 Chronicle</h3>
 
-            <h3>⭐ Moment of the Night</h3>
+                <p>${game.chronicle.replace(/\n/g,"<br><br>")}</p>
 
-            <p><em>${game.moment}</em></p>
+            </div>
+
+            <div class="chronicle-section">
+
+                <h3>⭐ Moment of the Night</h3>
+
+                <blockquote>${game.moment}</blockquote>
+
+            </div>
 
         </article>
         `;
 
     });
 
-    document.getElementById("sessionHistory").innerHTML = html;
+    container.innerHTML = html;
 
 }
 
+
+// ==========================================
+// Initialise Website
+// ==========================================
 
 buildLeagueTable();
 buildSessionHistory();
