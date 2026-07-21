@@ -186,5 +186,5 @@ function buildSessionHistory() {
 // Initialise Website
 // ==========================================
 
+buildPlayerCards();
 buildLeagueTable();
-buildSessionHistory();
