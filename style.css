@@ -355,3 +355,37 @@ blockquote{
     cursor:pointer;
 
 }
+
+/* ==========================================
+   Homepage Chronicles Button
+========================================== */
+
+.chronicles-home{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:40px;
+
+}
+
+.primary-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    min-width:320px;
+
+    font-size:1.15rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
