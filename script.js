@@ -1,4 +1,4 @@
-// BAGASS Championship v1.0
+u// BAGASS Championship v1.0
 const enterButton = document.getElementById("enterButton");
 const mainMenu = document.getElementById("mainMenu");
 const cards = Array.from(document.querySelectorAll(".flip-card"));
@@ -186,5 +186,4 @@ function buildSessionHistory() {
 // Initialise Website
 // ==========================================
 
-buildPlayerCards();
 buildLeagueTable();
