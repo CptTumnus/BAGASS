@@ -14,7 +14,7 @@ const games = [
 
     results: [
         { player: "tom", position: 1 },
-        { player: "jake", position: 2 },
+        { player: "jake", position: 1 },
         { player: "sarah", position: 1 },
         { player: "stacey", position: 1 },
         { player: "paul", position: 1 },
