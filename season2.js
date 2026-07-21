@@ -21,7 +21,7 @@ const season2 = {
         {
             player: "tom",
 
-            firsts: 0,
+            firsts: 1,
             seconds: 0,
 
             played: 2
@@ -30,7 +30,7 @@ const season2 = {
         {
             player: "paul",
 
-            firsts: 2,
+            firsts: 1,
             seconds: 0,
 
             played: 2
@@ -39,7 +39,7 @@ const season2 = {
         {
             player: "jake",
 
-            firsts: 0,
+            firsts: 2,
             seconds: 0,
 
             played: 2
@@ -48,7 +48,7 @@ const season2 = {
         {
             player: "rachel",
 
-            firsts: 0,
+            firsts: 1,
             seconds: 1,
 
             played: 2
@@ -57,7 +57,7 @@ const season2 = {
         {
             player: "sarah",
 
-            firsts: 0,
+            firsts: 1,
             seconds: 0,
 
             played: 2
@@ -66,8 +66,8 @@ const season2 = {
         {
             player: "stacey",
 
-            firsts: 0,
-            seconds: 1,
+            firsts: 1,
+            seconds: 0,
 
             played: 2
         }
