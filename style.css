@@ -457,3 +457,102 @@ blockquote{
     text-transform:uppercase;
 
 }
+
+
+/* ==========================================
+   Winner Portrait Cards
+========================================== */
+
+.winner-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin:20px 0 30px;
+
+}
+
+.winner-card{
+
+    width:150px;
+
+    padding:18px;
+
+    border-radius:20px;
+
+    background:linear-gradient(160deg,var(--surface-2),var(--surface));
+
+    border:2px solid rgba(255,255,255,.08);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+
+.winner-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 20px rgba(255,200,87,.25),
+        0 18px 35px rgba(0,0,0,.35);
+
+}
+
+.winner-card img{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 14px;
+
+    border-radius:50%;
+
+    border:4px solid var(--gold);
+
+    object-fit:cover;
+
+    background:#111;
+
+}
+
+.winner-card span{
+
+    display:block;
+
+    font-size:.95rem;
+
+    font-weight:900;
+
+    line-height:1.3;
+
+}
+
+@media(max-width:620px){
+
+    .winner-card{
+
+        width:130px;
+
+    }
+
+    .winner-card img{
+
+        width:75px;
+
+        height:75px;
+
+    }
+
+}
