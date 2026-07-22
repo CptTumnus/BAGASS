@@ -57,11 +57,11 @@ function buildSessionHistory() {
                         return `
                             <div class="winner-card">
 
-                                <img src="${player.portrait}" alt="${player.name}">
+    <img src="${player.portrait}" alt="${player.name}" loading="lazy">
 
-                                <span>${player.name}</span>
+    <span>${player.name}</span>
 
-                            </div>
+</div>
                         `;
 
                     }).join("")}
