@@ -13,17 +13,12 @@ function buildSessionHistory() {
 
     games.forEach((game, index) => {
 
-        const winners = game.results
-            .filter(result => result.position === 1)
-            .map(result => getPlayer(result.player).name);
-
-        const runnersUp = game.results
-            .filter(result => result.position === 2)
-            .map(result => getPlayer(result.player).name);
-
         const hosts = game.hosts
             .map(host => getPlayer(host).name)
             .join(" & ");
+
+        const winners = game.results.filter(result => result.position === 1);
+        const runnersUp = game.results.filter(result => result.position === 2);
 
         html += `
 
@@ -43,41 +38,65 @@ function buildSessionHistory() {
 
             </div>
 
-          <div class="chronicle-toggle">
+            <div class="chronicle-toggle">
 
-    <span>▼ Open Chronicle</span>
+                <span>▼ Open Chronicle</span>
 
-           </div>
+            </div>
 
             <div class="chronicle-content">
 
                 <h3>🏆 Champions</h3>
 
-                <ul>
+                <div class="winner-grid">
 
-                    ${winners.map(name => `<li>${name}</li>`).join("")}
+                    ${winners.map(result => {
 
-                </ul>
+                        const player = getPlayer(result.player);
 
-                ${
-                    runnersUp.length
-                    ?
-                    `
-                    <h3>${runnersUp.length > 1 ? "🥈 Runners-up" : "🥈 Runner-up"}</h3>
+                        return `
+                            <div class="winner-card">
 
-                    <ul>
+    <img src="${player.portrait}" alt="${player.name}" loading="lazy">
 
-                        ${runnersUp.map(name => `<li>${name}</li>`).join("")}
+    <span>${player.name}</span>
 
-                    </ul>
-                    `
-                    :
-                    ""
-                }
+</div>
+                        `;
+
+                    }).join("")}
+
+                </div>
+
+                ${runnersUp.length ? `
+
+                <h3>${runnersUp.length > 1 ? "🥈 Runners-up" : "🥈 Runner-up"}</h3>
+
+                <div class="winner-grid">
+
+                    ${runnersUp.map(result => {
+
+                        const player = getPlayer(result.player);
+
+                        return `
+                            <div class="winner-card">
+
+                                <img src="${player.portrait}" alt="${player.name}">
+
+                                <span>${player.name}</span>
+
+                            </div>
+                        `;
+
+                    }).join("")}
+
+                </div>
+
+                ` : ""}
 
                 <h3>📜 Chronicle</h3>
 
-                <p>${game.chronicle.replace(/\n/g,"<br><br>")}</p>
+                <p>${game.chronicle.replace(/\n/g, "<br><br>")}</p>
 
                 <h3>⭐ Moment of the Night</h3>
 
@@ -95,41 +114,38 @@ function buildSessionHistory() {
 
     document.querySelectorAll(".chronicle-card").forEach(card => {
 
-    card.addEventListener("click", (event) => {
+        card.addEventListener("click", event => {
 
-        // Don't toggle if the user clicked a link
-        if (event.target.closest("a")) return;
+            if (event.target.closest("a")) return;
 
-        const content = card.querySelector(".chronicle-content");
-        const toggle = card.querySelector(".chronicle-toggle span");
+            const content = card.querySelector(".chronicle-content");
+            const toggle = card.querySelector(".chronicle-toggle span");
 
-        const isOpen = card.classList.contains("open");
+            const isOpen = card.classList.contains("open");
 
-        // Close all other chapters
-        document.querySelectorAll(".chronicle-card").forEach(otherCard => {
+            document.querySelectorAll(".chronicle-card").forEach(otherCard => {
 
-            otherCard.classList.remove("open");
+                otherCard.classList.remove("open");
 
-            otherCard.querySelector(".chronicle-content").classList.remove("open");
+                otherCard.querySelector(".chronicle-content").classList.remove("open");
 
-            otherCard.querySelector(".chronicle-toggle span").textContent = "▼ Open Chronicle";
+                otherCard.querySelector(".chronicle-toggle span").textContent = "▼ Open Chronicle";
+
+            });
+
+            if (!isOpen) {
+
+                card.classList.add("open");
+
+                content.classList.add("open");
+
+                toggle.textContent = "▲ Close Chronicle";
+
+            }
 
         });
 
-        // Open this one if it wasn't already open
-        if (!isOpen) {
-
-            card.classList.add("open");
-
-            content.classList.add("open");
-
-            toggle.textContent = "▲ Close Chronicle";
-
-        }
-
     });
-
-});
 
 }
 
@@ -138,19 +154,19 @@ function buildSessionHistory() {
 // Helper Functions
 // ==========================================
 
-function formatDate(dateString){
+function formatDate(dateString) {
 
-    return new Date(dateString).toLocaleDateString("en-GB",{
+    return new Date(dateString).toLocaleDateString("en-GB", {
 
-        day:"numeric",
-        month:"long",
-        year:"numeric"
+        day: "numeric",
+        month: "long",
+        year: "numeric"
 
     });
 
 }
 
-function toRoman(number){
+function toRoman(number) {
 
     const numerals = [
 
@@ -172,9 +188,9 @@ function toRoman(number){
 
     let result = "";
 
-    numerals.forEach(([roman,value])=>{
+    numerals.forEach(([roman, value]) => {
 
-        while(number >= value){
+        while (number >= value) {
 
             result += roman;
             number -= value;
