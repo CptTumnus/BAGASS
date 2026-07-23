@@ -17,13 +17,17 @@ const addGameSuccess = document.getElementById("addGameSuccess");
 const gameLibraryList = document.getElementById("gameLibraryList");
 
 function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  }[char]));
+  return value.replace(
+    /[&<>"']/g,
+    (char) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[char]
+  );
 }
 
 function renderGameLibrary(games) {
@@ -34,11 +38,12 @@ function renderGameLibrary(games) {
 
   gameLibraryList.innerHTML = games
     .map((game) => {
-      const players = game.minPlayers && game.maxPlayers
-        ? `${game.minPlayers}–${game.maxPlayers} players`
-        : game.minPlayers
-          ? `${game.minPlayers}+ players`
-          : "";
+      const players =
+        game.minPlayers && game.maxPlayers
+          ? `${game.minPlayers}–${game.maxPlayers} players`
+          : game.minPlayers
+            ? `${game.minPlayers}+ players`
+            : "";
       const time = game.playTimeMinutes ? `${game.playTimeMinutes} min` : "";
       const meta = [players, time].filter(Boolean).join(" · ");
 
@@ -60,8 +65,12 @@ async function loadGameLibrary() {
       throw new Error("Failed to load games");
     }
 
-    renderGameLibrary(await response.json());
+    const data = await response.json();
+    console.log("Loaded game library:", data);
+
+    renderGameLibrary(data);
   } catch (error) {
+    console.log("Error loading game library:", error);
     gameLibraryList.innerHTML = `<li class="game-library-empty">Couldn't load the game library.</li>`;
   }
 }
