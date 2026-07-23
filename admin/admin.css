@@ -9,7 +9,9 @@
 
 .admin-main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     padding-block: 2rem 5rem;
 }
 
@@ -71,6 +73,46 @@
     margin: 0;
     color: #7ce38b;
     font-weight: 700;
+    text-align: center;
+}
+
+.game-library-list {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    max-height: 320px;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.game-library-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .75rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: .75rem;
+    background: rgba(255, 255, 255, .03);
+    text-align: left;
+}
+
+.game-library-list .game-name {
+    font-weight: 800;
+}
+
+.game-library-list .game-meta {
+    color: var(--muted);
+    font-size: .85rem;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.game-library-empty {
+    justify-content: center;
+    color: var(--muted);
     text-align: center;
 }
 

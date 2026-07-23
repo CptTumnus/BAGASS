@@ -14,6 +14,59 @@ function getCookie(name) {
 const addGameForm = document.getElementById("addGameForm");
 const addGameError = document.getElementById("addGameError");
 const addGameSuccess = document.getElementById("addGameSuccess");
+const gameLibraryList = document.getElementById("gameLibraryList");
+
+function escapeHtml(value) {
+  return value.replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  }[char]));
+}
+
+function renderGameLibrary(games) {
+  if (!games.length) {
+    gameLibraryList.innerHTML = `<li class="game-library-empty">No games in the library yet.</li>`;
+    return;
+  }
+
+  gameLibraryList.innerHTML = games
+    .map((game) => {
+      const players = game.minPlayers && game.maxPlayers
+        ? `${game.minPlayers}–${game.maxPlayers} players`
+        : game.minPlayers
+          ? `${game.minPlayers}+ players`
+          : "";
+      const time = game.playTimeMinutes ? `${game.playTimeMinutes} min` : "";
+      const meta = [players, time].filter(Boolean).join(" · ");
+
+      return `
+        <li>
+          <span class="game-name">${escapeHtml(game.name)}</span>
+          ${meta ? `<span class="game-meta">${meta}</span>` : ""}
+        </li>
+      `;
+    })
+    .join("");
+}
+
+async function loadGameLibrary() {
+  try {
+    const response = await fetch(GAMES_ENDPOINT);
+
+    if (!response.ok) {
+      throw new Error("Failed to load games");
+    }
+
+    renderGameLibrary(await response.json());
+  } catch (error) {
+    gameLibraryList.innerHTML = `<li class="game-library-empty">Couldn't load the game library.</li>`;
+  }
+}
+
+loadGameLibrary();
 
 addGameForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -54,6 +107,7 @@ addGameForm?.addEventListener("submit", async (event) => {
     addGameForm.reset();
     addGameSuccess.textContent = `"${data.name}" was added to the game library.`;
     addGameSuccess.hidden = false;
+    loadGameLibrary();
   } catch (error) {
     addGameError.textContent =
       error.message || "Failed to add game. Please try again.";
