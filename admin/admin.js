@@ -13,11 +13,11 @@ function getCookie(name) {
 function setCookie(name, value, hours) {
     const expires = new Date(Date.now() + hours * 60 * 60 * 1000).toUTCString();
     const secure = location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/admin; SameSite=Lax${secure}`;
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax${secure}`;
 }
 
 function deleteCookie(name) {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/admin`;
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
 }
 
 const loginView = document.getElementById("loginView");
