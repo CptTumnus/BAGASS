@@ -67,6 +67,13 @@
     text-align: center;
 }
 
+.admin-success {
+    margin: 0;
+    color: #7ce38b;
+    font-weight: 700;
+    text-align: center;
+}
+
 .admin-actions {
     display: flex;
     flex-direction: column;

@@ -63,13 +63,13 @@ loginForm?.addEventListener("submit", async (event) => {
         }
 
         const data = await response.json();
-        const token = data.token || data.authToken || data.access_token;
+        const token = data.token;
 
         if (!token) {
             throw new Error("No auth token returned");
         }
 
-        setCookie(ADMIN_TOKEN_COOKIE, token, 12);
+        setCookie(ADMIN_TOKEN_COOKIE, token, 24);
         showLoggedIn();
 
     } catch (error) {
