@@ -48,9 +48,36 @@ console.info("BAGASS v1.0 loaded");
 // League Table
 // ==========================================
 
-function buildLeagueTable() {
+const LEAGUE_RESULTS_ENDPOINT = "https://bagass-api-theta.vercel.app/api/results";
 
-    const league = getLeagueTable();
+function buildLeagueRows(results) {
+
+    const rows = players.map(player => {
+
+        const result = results.find(r => r.playerId === player.apiId);
+
+        return {
+            player: player,
+            points: result ? result.totalPoints : 0,
+            firsts: result ? result.firstPlaces : 0,
+            seconds: result ? result.secondPlaces : 0
+        };
+
+    });
+
+    rows.sort((a, b) => {
+
+        if (b.points !== a.points) return b.points - a.points;
+        if (b.firsts !== a.firsts) return b.firsts - a.firsts;
+        return b.seconds - a.seconds;
+
+    });
+
+    return rows;
+
+}
+
+function renderLeagueTable(rows) {
 
     let html = `
         <table class="league-table">
@@ -66,9 +93,9 @@ function buildLeagueTable() {
             <tbody>
     `;
 
-    league.forEach((player, index) => {
+    rows.forEach((row, index) => {
 
-        const info = getPlayer(player.player);
+        const info = row.player;
 
         const crown = index === 0 ? "👑 " : "";
         const trophy = info && info.seasonOneChampion ? "🏆 " : "";
@@ -76,10 +103,10 @@ function buildLeagueTable() {
         html += `
             <tr class="${index === 0 ? "leader" : ""}">
                 <td>${index + 1}</td>
-                <td>${crown}${trophy}${info ? info.name : player.player}</td>
-                <td>${player.points}</td>
-                <td>${player.firsts}</td>
-                <td>${player.seconds}</td>
+                <td>${crown}${trophy}${info ? info.name : "Unknown Player"}</td>
+                <td>${row.points}</td>
+                <td>${row.firsts}</td>
+                <td>${row.seconds}</td>
             </tr>
         `;
 
@@ -90,6 +117,28 @@ function buildLeagueTable() {
             </tbody>
         </table>
     `;
+
+}
+
+async function buildLeagueTable() {
+
+    const container = document.getElementById("leagueTable");
+    if (!container) return;
+
+    try {
+
+        const response = await fetch(LEAGUE_RESULTS_ENDPOINT);
+
+        if (!response.ok) {
+            throw new Error("Failed to load results");
+        }
+
+        const results = await response.json();
+        renderLeagueTable(buildLeagueRows(results));
+
+    } catch (error) {
+        container.innerHTML = `<div class="coming-soon"><span>🏆</span><strong>Couldn't load the league standings</strong></div>`;
+    }
 
 }
 

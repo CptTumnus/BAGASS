@@ -5,8 +5,7 @@
 // ==========================================
 
 const players = [
-
-{
+  {
     id: "tom",
     name: "Tom Williams",
     nickname: "The Laid-Back Strategist",
@@ -23,16 +22,18 @@ const players = [
 
     victorySong: "Gnarkill - Skeletor Vs Beastman",
 
-    secret: "Cancelled a date to eat three pizzas and drink amaretto in a paddling pool with another man I met two weeks earlier.",
+    secret:
+      "Cancelled a date to eat three pizzas and drink amaretto in a paddling pool with another man I met two weeks earlier.",
 
     portrait: "images/tom.png",
     card: "images/tomcard.png",
 
     seasonOneChampion: false,
-    currentChampion: false
-},
+    currentChampion: false,
+    apiId: 2,
+  },
 
-{
+  {
     id: "paul",
     name: "Paul Barnett",
     nickname: "The Strategist",
@@ -55,10 +56,11 @@ const players = [
     card: "images/paulcard.png",
 
     seasonOneChampion: true,
-    currentChampion: false
-},
+    currentChampion: false,
+    apiId: 1,
+  },
 
-{
+  {
     id: "jake",
     name: "Jake Tinsley",
     nickname: "The Chaotic Strategist",
@@ -81,10 +83,11 @@ const players = [
     card: "images/jakecard.png",
 
     seasonOneChampion: false,
-    currentChampion: false
-},
+    currentChampion: false,
+    apiId: 3,
+  },
 
-{
+  {
     id: "rachel",
     name: "Rachel Barnett",
     nickname: "The Competitive Supporter",
@@ -107,10 +110,11 @@ const players = [
     card: "images/rachelcard.png",
 
     seasonOneChampion: false,
-    currentChampion: false
-},
+    currentChampion: false,
+    apiId: 4,
+  },
 
-{
+  {
     id: "sarah",
     name: "Sarah Thurmer",
     nickname: "The Wildcard",
@@ -133,10 +137,11 @@ const players = [
     card: "images/sarahcard.png",
 
     seasonOneChampion: false,
-    currentChampion: false
-},
+    currentChampion: false,
+    apiId: 5,
+  },
 
-{
+  {
     id: "stacey",
     name: "Stacey Williams-Sparks",
     nickname: "The Clueless Explorer",
@@ -159,11 +164,10 @@ const players = [
     card: "images/staceycard.png",
 
     seasonOneChampion: false,
-    currentChampion: false
-}
-
+    currentChampion: false,
+    apiId: 6,
+  },
 ];
-
 
 // ==========================================
 // Help Functions
@@ -171,21 +175,15 @@ const players = [
 
 // Find player by ID
 
-function getPlayer(id){
-
-    return players.find(player => player.id === id);
-
+function getPlayer(id) {
+  return players.find((player) => player.id === id);
 }
-
 
 // Get all players
 
-function getPlayers(){
-
-    return players;
-
+function getPlayers() {
+  return players;
 }
-
 
 // Future use...
 
