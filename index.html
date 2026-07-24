@@ -111,6 +111,9 @@
     <section class="content-section section-shell" id="games">
       <div class="section-heading"><p class="eyebrow">Pick your poison</p><h2>Game Library</h2></div>
       <div id="gameLibraryTable"></div>
+      <div class="game-library-actions">
+        <button id="chooseGameButton" class="primary-button" type="button">🎯 Choose a Game</button>
+      </div>
     </section>
     <section class="content-section section-shell" id="achievements">
       <div class="section-heading"><p class="eyebrow">Bragging rights</p><h2>Achievements</h2></div>
@@ -151,6 +154,46 @@
     </section>
   </main>
   <footer><a href="#home">Back to the top</a><p>BAGASS Championship · 2026–2027</p></footer>
+
+  <div id="gameSpinnerModal" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="gameSpinnerTitle">
+      <button id="gameSpinnerClose" class="modal-close" type="button" aria-label="Close">✕</button>
+      <h2 id="gameSpinnerTitle">Choose a Game</h2>
+
+      <div id="gamePickerView" class="game-picker">
+        <div class="game-picker-column">
+          <h3>Available</h3>
+          <ul id="availableGamesList" class="game-picker-list"></ul>
+        </div>
+        <div class="game-picker-arrows">
+          <button id="addGameButton" class="arrow-button" type="button" aria-label="Add selected to the wheel">▶</button>
+          <button id="removeGameButton" class="arrow-button" type="button" aria-label="Remove selected from the wheel">◀</button>
+        </div>
+        <div class="game-picker-column">
+          <h3>Selected</h3>
+          <ul id="selectedGamesList" class="game-picker-list"></ul>
+        </div>
+      </div>
+
+      <button id="spinWheelButton" class="primary-button spin-button" type="button" disabled>Spin the Wheel</button>
+
+      <div id="wheelView" class="wheel-view" hidden>
+        <div class="wheel-wrapper">
+          <div class="wheel-pointer">◀</div>
+          <div id="spinWheel" class="wheel"></div>
+        </div>
+      </div>
+
+      <div id="wheelResult" class="wheel-result" hidden>
+        <p class="eyebrow">Tonight's game is...</p>
+        <h2 id="wheelResultName"></h2>
+        <button id="spinAgainButton" class="primary-button" type="button">Spin Again</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="confettiCanvas" hidden></canvas>
+
 <script src="players.js"></script>
 <script src="games.js"></script>
 <script src="season2.js"></script>
