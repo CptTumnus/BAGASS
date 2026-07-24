@@ -166,8 +166,14 @@
           <ul id="availableGamesList" class="game-picker-list"></ul>
         </div>
         <div class="game-picker-arrows">
-          <button id="addGameButton" class="arrow-button" type="button" aria-label="Add selected to the wheel">▶</button>
-          <button id="removeGameButton" class="arrow-button" type="button" aria-label="Remove selected from the wheel">◀</button>
+          <button id="addGameButton" class="arrow-button" type="button" aria-label="Add selected to the wheel">
+            <span class="arrow-icon arrow-icon--right">▶</span>
+            <span class="arrow-icon arrow-icon--down">▼</span>
+          </button>
+          <button id="removeGameButton" class="arrow-button" type="button" aria-label="Remove selected from the wheel">
+            <span class="arrow-icon arrow-icon--left">◀</span>
+            <span class="arrow-icon arrow-icon--up">▲</span>
+          </button>
         </div>
         <div class="game-picker-column">
           <h3>Selected</h3>

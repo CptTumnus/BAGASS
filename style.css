@@ -234,6 +234,24 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
         padding:12px 14px;
         font-size:.9rem;
     }
+
+    .league-table th,
+    .league-table td{
+        padding:12px 10px;
+        font-size:.8rem;
+    }
+
+    .league-table td:nth-child(2){
+        font-size:.95rem;
+    }
+
+    .league-table td:first-child{
+        font-size:1rem;
+    }
+
+    .league-table td:nth-child(3){
+        font-size:1.05rem;
+    }
 }
 
 #championDisplay{
@@ -780,6 +798,11 @@ body.modal-open{
     transition:border-color .15s ease,transform .15s ease;
 }
 
+.arrow-icon--down,
+.arrow-icon--up{
+    display:none;
+}
+
 .arrow-button:hover{
     border-color:var(--gold);
     transform:scale(1.05);
@@ -873,6 +896,10 @@ body.modal-open{
 
 @media(max-width:620px){
 
+    .modal{
+        width:95vw;
+    }
+
     .game-picker{
         grid-template-columns:1fr;
     }
@@ -884,6 +911,16 @@ body.modal-open{
 
     .game-picker-list{
         height:180px;
+    }
+
+    .arrow-icon--right,
+    .arrow-icon--left{
+        display:none;
+    }
+
+    .arrow-icon--down,
+    .arrow-icon--up{
+        display:inline;
     }
 
 }
