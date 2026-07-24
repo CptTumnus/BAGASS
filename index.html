@@ -194,11 +194,25 @@
 
   <canvas id="confettiCanvas" hidden></canvas>
 
+  <button id="diceRollButton" class="dice-fab" type="button" aria-label="Roll the player dice">🎲</button>
+
+  <div id="diceRollModal" class="modal-overlay dice-overlay" hidden>
+    <div class="modal dice-modal">
+      <button id="diceRollClose" class="modal-close" type="button" aria-label="Close">✕</button>
+      <h2>Rolling the Dice...</h2>
+      <div class="dice-stage">
+        <div class="dice-cube" id="diceCube"></div>
+      </div>
+      <p id="diceRollResult" class="dice-result" hidden></p>
+    </div>
+  </div>
+
 <script src="players.js"></script>
 <script src="games.js"></script>
 <script src="season2.js"></script>
 <script src="champions.js"></script>
 <script src="game-library.js"></script>
+<script src="dice-roll.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
