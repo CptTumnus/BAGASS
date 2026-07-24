@@ -195,6 +195,7 @@
   <canvas id="confettiCanvas" hidden></canvas>
 
   <button id="diceRollButton" class="dice-fab" type="button" aria-label="Roll the player dice">🎲</button>
+  <button id="coinFlipButton" class="coin-fab" type="button" aria-label="Flip a coin">🪙</button>
 
   <div id="diceRollModal" class="modal-overlay dice-overlay" hidden>
     <div class="modal dice-modal">
@@ -207,12 +208,33 @@
     </div>
   </div>
 
+  <div id="coinFlipModal" class="modal-overlay coin-overlay" hidden>
+    <div class="modal coin-modal">
+      <button id="coinFlipClose" class="modal-close" type="button" aria-label="Close">✕</button>
+      <h2>Flipping the Coin...</h2>
+      <div class="coin-stage">
+        <div class="coin" id="flipCoin">
+          <div class="coin-face coin-face--heads">
+            <span class="coin-letter">H</span>
+            <span class="coin-label">Heads</span>
+          </div>
+          <div class="coin-face coin-face--tails">
+            <span class="coin-letter">T</span>
+            <span class="coin-label">Tails</span>
+          </div>
+        </div>
+      </div>
+      <p id="coinFlipResult" class="coin-result" hidden></p>
+    </div>
+  </div>
+
 <script src="players.js"></script>
 <script src="games.js"></script>
 <script src="season2.js"></script>
 <script src="champions.js"></script>
 <script src="game-library.js"></script>
 <script src="dice-roll.js"></script>
+<script src="coin-flip.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
