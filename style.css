@@ -148,6 +148,94 @@ h1 { max-width:900px; font-size:clamp(3rem,9vw,7rem); } h2 { font-size:clamp(2.3
     background: rgba(255,200,87,.12);
 }
 
+/* ==========================
+   GAME LIBRARY TABLE
+========================== */
+
+#gameLibraryTable{
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.game-table-wrapper{
+    max-height:625px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--line);
+}
+
+.game-table{
+    width:100%;
+    border-collapse:collapse;
+    background:linear-gradient(160deg,var(--surface-2),var(--surface));
+}
+
+.game-table-wrapper .game-table{
+    border-radius:0;
+    box-shadow:none;
+    border:none;
+}
+
+.game-table thead th{
+    position:sticky;
+    top:0;
+    z-index:1;
+}
+
+.game-table thead{
+    background:linear-gradient(90deg,var(--purple),var(--pink));
+}
+
+.game-table th{
+    padding:18px 22px;
+    text-align:left;
+    font-size:1rem;
+    font-weight:900;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    cursor:pointer;
+    user-select:none;
+    white-space:nowrap;
+    transition:background .2s;
+}
+
+.game-table th:hover{
+    background:rgba(255,255,255,.1);
+}
+
+.game-table th.sorted{
+    color:var(--gold);
+}
+
+.game-table td{
+    padding:18px 22px;
+    font-size:1.05rem;
+    font-weight:700;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.game-table tbody tr{
+    transition:.25s;
+}
+
+.game-table tbody tr:hover{
+    background:rgba(255,255,255,.06);
+}
+
+@media (max-width:620px){
+    .game-table-wrapper{
+        max-height:455px;
+    }
+
+    .game-table th,
+    .game-table td{
+        padding:12px 14px;
+        font-size:.9rem;
+    }
+}
+
 #championDisplay{
 
 display:flex;
