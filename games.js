@@ -60,7 +60,7 @@ When the dust finally settled, Jake produced a flawless final performance to cla
 
     moment: "Jake held his nerve through the final to become the first solo winner of the season."
 
-}
+},
 
  {
     id: 3,
