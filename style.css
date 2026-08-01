@@ -542,15 +542,21 @@ blockquote{
 
 .chronicles-home .primary-button{
 
-    display:inline-flex;
+    display:flex;
 
     align-items:center;
 
     justify-content:center;
 
-    min-width:340px;
+    gap:.75rem;
 
-    padding:1rem 2.5rem;
+    width:min(600px,100%);
+
+    min-height:90px;
+
+    padding:0 2.5rem;
+
+    text-align:center;
 
     text-decoration:none;
 
@@ -561,6 +567,18 @@ blockquote{
     letter-spacing:.08em;
 
     text-transform:uppercase;
+
+    line-height:1.2;
+
+}
+
+.chronicles-home .primary-button span{
+
+    display:block;
+
+    flex:1;
+
+    text-align:center;
 
 }
 
